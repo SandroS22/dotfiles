@@ -35,7 +35,7 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 font-0 = "JetBrainsMono Nerd Font:weight=bold:size=12"
-font-1 = "Symbols Nerd Font Mono:size=14"
+font-1 = "Symbols Nerd Font Mono:size=16"
 
 line-size = 4pt
 
@@ -48,7 +48,7 @@ padding-right = 1
 module-margin = 0
 
 modules-left = ubuntu space xworkspaces space spo space spotify
-modules-center = weather space date
+modules-center = weather space date space 
 modules-right = cava space space pulseaudio space backlight space separator space battery space separator space wlan lan space separator space vpn
 
 [module/xworkspaces]
@@ -243,8 +243,7 @@ exec = ~/Scripts/cava.py -f 60 -b 16 -e 490761,78109e,9937bd  -c stereo
 tail = true
 
 [module/vpn]
-type = custom/script
-click-left = ~/Scripts/vpn.sh
+type = custom/text
+click-left = exec ~/Scripts/vpn.sh
 interval = 600
-format = <label>
 content = 󰖂

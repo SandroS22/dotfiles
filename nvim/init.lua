@@ -14,7 +14,7 @@ Plug ('neovim/nvim-lspconfig')
 Plug ('catppuccin/nvim', { ['as'] = 'catppuccin' })
 Plug ('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
 Plug ('nvim-lua/plenary.nvim')
-Plug ('nvim-telescope/telescope.nvim', { ['tag'] = '0.1.5' })
+Plug ('nvim-telescope/telescope.nvim', { ['tag'] = '0.1.8' })
 Plug ('neoclide/coc.nvim', {['branch'] = 'release'})
 
 Plug ('neovim/nvim-lspconfig')
@@ -25,7 +25,6 @@ Plug ('hrsh7th/cmp-cmdline')
 Plug ('hrsh7th/nvim-cmp')
 Plug ('neoclide/coc.nvim', {['branch'] = 'master', ['do'] = 'npm ci'})
 Plug ('windwp/nvim-autopairs')
-
 -- For vsnip users.
 --Plug 'hrsh7th/cmp-vsnip'
 Plug ('hrsh7th/vim-vsnip')
@@ -34,13 +33,6 @@ Plug ('hrsh7th/vim-vsnip')
 Plug ('L3MON4D3/LuaSnip')
 Plug ('saadparwaiz1/cmp_luasnip')
 
--- For ultisnips users.
--- Plug ('SirVer/ultisnips')
--- Plug 'quangnguyen30192/cmp-nvim-ultisnips'
-
---For snippy users.
---Plug 'dcampos/nvim-snippy'
---Plug ('dcampos/cmp-snippy')
 vim.call('plug#end')
 
 -- Configuração do autocomplete
@@ -51,10 +43,10 @@ map("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=c
 -- Fim configuração autocomplete
 
 
-vim.cmd.colorscheme('catppuccin') 
+vim.cmd.colorscheme('catppuccin')
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.clipboard = unnamedplus
+vim.opt.clipboard = 'unnamedplus'
 vim.opt.tabstop=4
 vim.opt.shiftwidth=4
 

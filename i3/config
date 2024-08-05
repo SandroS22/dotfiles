@@ -28,7 +28,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -t -i ~/Imagens/wallpapers/spirited-away-chihiro-anime-anim.png
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -t -i ~/Imagens/wallpapers/CatppuccinMocha-Kurzgesagt-BlackHole1.png
 
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
@@ -154,7 +154,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 
-for_window [class="^.*"] border pixel 5
+for_window [class="^.*"] border pixel 1
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -182,6 +182,11 @@ mode "resize" {
 }
 
 
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #cba6f7	 #285577 #ffffff #eba0ac   #cba6f7
+
+
 #Gaps
 gaps inner 7
 gaps outer 5
@@ -190,10 +195,10 @@ gaps outer 5
 bindsym $mod+r mode "resize"
 
 # Wallpaper
-exec_always --no-startup-id feh --bg-scale ~/Downloads/Clearnight.jpg
+exec_always --no-startup-id feh --bg-scale ~/Imagens/wallpapers/CatppuccinMocha-Kurzgesagt-StellarPhenomenon.png
 
 # Picom
-exec_always --no-startup-id picom --experimental-backend
+exec_always --no-startup-id picom
 
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -217,24 +222,24 @@ mode "$mode_redshift" {
 }
 
 # Brightness
-bindsym XF86MonBrightnessUp exec brightnessctl set +10%
-bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
 
 # Monitores
 exec_always --no-startup-id xrandr --output HDMI-1 --auto --primary --left-of eDP-1
 
 #i3lock
-bindsym  $mod+l exec --no-startup-id i3lock --nofork -t -i ~/Imagens/wallpapers/spirited-away-chihiro-anime-anim.png
+bindsym  $mod+l exec --no-startup-id i3lock --nofork -t -i ~/Imagens/wallpapers/CatppuccinMocha-Kurzgesagt-BlackHole1.png
 
 # Screenshots
-bindsym --release Print exec --no-startup-id maim "/home/sandro_santana/Imagens/Screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png"
-bindsym --release $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/sandro_santana/Imagens/Screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png"
-bindsym --release Shift+Print exec --no-startup-id maim --select "/home/sandro_santana/Imagens/Screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png"
+bindsym --release Print exec --no-startup-id maim "/home/sandro/Imagens/Screenshots/$(date +%s).png"
+bindsym --release $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/sandro/Imagens/Screenshots/$(date +%s).png
+bindsym --release Shift+Print exec --no-startup-id maim -u --select "/home/sandro/Imagens/Screenshots/$(date +%s).png"
 
 ## Clipboard Screenshots
 bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
 bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
-bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec --no-startup-id maim -u --select | xclip -selection clipboard -t image/png
 
 # Media player controls
 bindsym XF86AudioPlay exec "playerctl play-pause"
@@ -243,4 +248,7 @@ bindsym XF86AudioNext exec "playerctl next"
 bindsym XF86AudioPrev exec "playerctl previous"
 
 # Battery notification
-exec --no-startup-id  /home/sandro_santana/Scripts/battery.sh
+#exec --no-startup-id  /home/sandro/Scripts/battery.sh
+
+# GTK theme
+exec --no-startup-id /usr/libexec/gsd-xsettings
