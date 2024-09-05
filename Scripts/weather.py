@@ -11,10 +11,13 @@
 
 import requests
 import json
+import os
+from dotenv import load_dotenv
 
 # Settings
 city = "Florianópolis" # Your town
-api_key = "db1188822bfffb635046ad020d755c3b" # Your openweather api key
+load_dotenv()
+api_key = os.getenv('API_KEY') # Your openweather api key
 units = "metric" # Unit system {imperial or metric}
 temperature_unit = "C" # Units of measurement. That will be showed in UI. Does not affect on API.
 
